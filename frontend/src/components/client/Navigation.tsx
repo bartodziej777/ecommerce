@@ -24,22 +24,22 @@ export default function Navigation() {
 
   return (
     <>
-      <header className="bg-surfaceLight dark:bg-surfaceDark py-2 px-4 lg:px-16 xl:px-32 2xl:px-64 text-2xl">
+      <header className="bg-surfaceLight dark:bg-surfaceDark py-2 lg:py-4 px-4 lg:px-16 xl:px-32 2xl:px-64 text-2xl text-textLight1 dark:text-textDark1">
         <div className="w-full flex justify-between items-center">
-          <Link to="/" className="capitalize line-through">
+          <Link to="/" className="capitalize line-through lg:text-3xl">
             unseen
           </Link>
           <nav
             className={`absolute md:static w-screen md:w-auto h-screen md:h-auto bg-surfaceLight dark:bg-surfaceDark top-0 md:top-auto left-full md:left-auto duration-300 md:duration-0 ease-in ${active ? "-translate-x-full" : "translate-x-0"} md:translate-x-0 md:flex`}
           >
-            <ul className="flex capitalize flex-col md:flex-row text-center h-screen md:h-auto justify-center text-4xl md:text-lg">
+            <ul className="flex capitalize flex-col md:flex-row text-center h-screen md:h-auto justify-center text-4xl md:text-lg lg:text-2xl transition-color">
               <li className="px-2 py-2 md:py-0">
                 <NavLink
                   to="/hoodies"
                   style={({ isActive }) => ({
-                    color: isActive ? "#7371fc" : "",
+                    textDecoration: isActive ? "underline" : "none",
                   })}
-                  className="hover:underline"
+                  className="hover:text-primary duration-300"
                   onClick={() => {
                     setActive(false);
                   }}
@@ -51,9 +51,9 @@ export default function Navigation() {
                 <NavLink
                   to="/tshirts"
                   style={({ isActive }) => ({
-                    color: isActive ? "#7371fc" : "",
+                    textDecoration: isActive ? "underline" : "none",
                   })}
-                  className="hover:underline"
+                  className="hover:text-primary duration-300"
                   onClick={() => {
                     setActive(false);
                   }}
@@ -65,9 +65,9 @@ export default function Navigation() {
                 <NavLink
                   to="/accessories"
                   style={({ isActive }) => ({
-                    color: isActive ? "#7371fc" : "",
+                    textDecoration: isActive ? "underline" : "none",
                   })}
-                  className="hover:underline"
+                  className="hover:text-primary duration-300"
                   onClick={() => {
                     setActive(false);
                   }}
@@ -79,9 +79,9 @@ export default function Navigation() {
                 <NavLink
                   to="/sale"
                   style={({ isActive }) => ({
-                    color: isActive ? "#7371fc" : "",
+                    textDecoration: isActive ? "underline" : "none",
                   })}
-                  className="hover:underline"
+                  className="hover:text-primary duration-300"
                   onClick={() => {
                     setActive(false);
                   }}
@@ -91,13 +91,13 @@ export default function Navigation() {
               </li>
             </ul>
           </nav>
-          <div className="flex items-center">
+          <div className="flex items-center lg:text-3xl">
             <NavLink
               to="/cart"
               style={({ isActive }) => ({
                 color: isActive ? "#7371fc" : "",
               })}
-              className="hover:underline"
+              className="hover:text-primary duration-300"
             >
               <IoMdCart />
             </NavLink>
@@ -106,7 +106,7 @@ export default function Navigation() {
               style={({ isActive }) => ({
                 color: isActive ? "#7371fc" : "",
               })}
-              className="hover:underline"
+              className="hover:text-primary duration-300"
             >
               <IoMdPerson />
             </NavLink>
