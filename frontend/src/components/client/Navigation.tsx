@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Outlet } from "react-router-dom";
 import { IoMdPerson } from "react-icons/io";
 import { IoMdCart } from "react-icons/io";
-import Hamburger from "./Hamburger";
+import Hamburger from "../Hamburger";
 
 export default function Navigation() {
   const [active, setActive] = useState<boolean>(false);
@@ -20,6 +19,7 @@ export default function Navigation() {
     };
 
     window.addEventListener("resize", handleOnResize);
+    return window.removeEventListener("resize", handleOnResize);
   }, []);
 
   return (
@@ -30,7 +30,7 @@ export default function Navigation() {
             unseen
           </Link>
           <nav
-            className={`absolute md:static w-screen md:w-auto h-screen md:h-auto bg-surfaceLight dark:bg-surfaceDark top-0 md:top-auto left-full md:left-auto duration-300 md:duration-0 ease-in ${active ? "-translate-x-full" : "translate-x-0"} md:translate-x-0 md:flex`}
+            className={`absolute md:static w-screen md:w-auto h-screen md:h-auto bg-surfaceLight dark:bg-surfaceDark top-0 md:top-auto left-full md:left-auto transition-transform duration-300 md:duration-0 ease-in ${active ? "-translate-x-full" : "translate-x-0"} md:translate-x-0 md:flex`}
           >
             <ul className="flex capitalize flex-col md:flex-row text-center h-screen md:h-auto justify-center text-4xl md:text-lg lg:text-2xl transition-color">
               <li className="px-2 py-2 md:py-0">
@@ -114,7 +114,6 @@ export default function Navigation() {
           </div>
         </div>
       </header>
-      <Outlet />
     </>
   );
 }
